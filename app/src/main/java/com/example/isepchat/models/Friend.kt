@@ -1,0 +1,11 @@
+package com.example.isepchat.models
+
+data class Friend(
+    var uuid: String,
+    val name: String,
+    val lastMsg: String,
+    val image: String,
+    val timestamp: Long,
+) {
+    constructor(): this("", "", "", "", 0)
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "609828594276",
+    "project_id": "telegram-clo-c7f9f",
+    "storage_bucket": "telegram-clo-c7f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:609828594276:android:2169dbefaedb8edb697571",
+        "android_client_info": {
+          "package_name": "com.example.isepchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQZkzYLUOhVcN9AyrHEBXxKjdu3FoeYME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
