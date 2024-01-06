@@ -16,24 +16,21 @@
             android:name=".activities.Main"
             android:exported="false"
             android:label="@string/title_activity_main" />
-        <activity
-            android:name=".activities.HomeNavigation"
-            android:exported="false"
-            android:label="@string/title_activity_home_navigation" />
+
         <activity
             android:name=".activities.SettingsActivity"
             android:exported="false"
-            android:label="Paramétres"
-            android:parentActivityName=".activities.HomeNavigation" />
+            android:label="Edit Profile"
+            android:parentActivityName=".activities.Main" />
         <activity
             android:name=".activities.UsersSearchActivity"
             android:exported="false"
-            android:label="Rechercher"
-            android:parentActivityName=".activities.HomeNavigation" />
+            android:label="Search"
+            android:parentActivityName=".activities.Main" />
         <activity
             android:name=".activities.ChatActivity"
             android:exported="false"
-            android:parentActivityName=".activities.HomeNavigation" />
+            android:parentActivityName=".activities.Main" />
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false"

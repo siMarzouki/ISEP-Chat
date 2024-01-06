@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.SettingsActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.4"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_france" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +63,7 @@
             android:layout_height="55dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:text="Enregistrer"
+            android:text="Save"
             app:cornerRadius="4dp" />
 
 

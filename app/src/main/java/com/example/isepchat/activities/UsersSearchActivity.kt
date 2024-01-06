@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.isepchat.R
 import com.example.isepchat.adapters.UsersRecyclerAdapter
 import com.example.isepchat.models.User
+import com.example.isepchat.services.communityService
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -47,11 +48,11 @@ class UsersSearchActivity : AppCompatActivity() {
         val users = mutableListOf<User>()
         db = Firebase.firestore
         db.collection("users")
-            .whereNotEqualTo("email", currentUser?.email)
             .get()
             .addOnSuccessListener { result ->
             for(document in result) {
                 val uuid = document.id
+                if(uuid==currentUser!!.uid)continue
                 val email = document.getString("email")
                 val fullName = document.getString("fullname")
                 users.add(User(uuid, email ?: "", fullName ?: "", null))
