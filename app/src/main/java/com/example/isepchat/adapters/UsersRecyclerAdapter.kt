@@ -60,7 +60,7 @@ class UsersRecyclerAdapter: RecyclerView.Adapter<UsersRecyclerAdapter.ViewHolder
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tvShortName: TextView = itemView.findViewById(R.id.tvShortName)
-        val tvName: TextView = itemView.findViewById(R.id.tvName)
+        val tvName: TextView = itemView.findViewById(R.id.ivName)
 
         fun bind(user: User) {
             tvShortName.text = user.fullname[0].toString()

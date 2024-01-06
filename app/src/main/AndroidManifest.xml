@@ -13,23 +13,31 @@
         android:theme="@style/Theme.ISEPCHAT"
         tools:targetApi="31">
         <activity
+            android:name=".activities.Main"
+            android:exported="false"
+            android:label="@string/title_activity_main" />
+        <activity
+            android:name=".activities.HomeNavigation"
+            android:exported="false"
+            android:label="@string/title_activity_home_navigation" />
+        <activity
             android:name=".activities.SettingsActivity"
+            android:exported="false"
             android:label="Paramétres"
-            android:parentActivityName=".activities.HomeActivity"
-            android:exported="false" />
+            android:parentActivityName=".activities.HomeNavigation" />
         <activity
             android:name=".activities.UsersSearchActivity"
             android:exported="false"
             android:label="Rechercher"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:parentActivityName=".activities.HomeNavigation" />
         <activity
             android:name=".activities.ChatActivity"
             android:exported="false"
-            android:parentActivityName=".activities.HomeActivity" />
+            android:parentActivityName=".activities.HomeNavigation" />
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false"
-            android:label="Créer un compte"
+            android:label="Create an account"
             android:parentActivityName=".activities.AuthentificationActivity" />
         <activity
             android:name=".activities.AuthentificationActivity"

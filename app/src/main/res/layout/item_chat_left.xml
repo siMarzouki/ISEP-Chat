@@ -19,7 +19,7 @@
         tools:text="Salut mon frere" />
 
     <TextView
-        android:id="@+id/tvHour"
+        android:id="@+id/ivHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"

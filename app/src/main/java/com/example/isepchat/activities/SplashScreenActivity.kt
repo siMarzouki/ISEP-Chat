@@ -19,7 +19,7 @@ class SplashScreenActivity : AppCompatActivity() {
             val auth = Firebase.auth
             val currentUser = auth.currentUser
             if(currentUser != null) {
-                Intent(this, HomeActivity::class.java).also {
+                Intent(this, Main::class.java).also {
                     startActivity(it)
                 }
             }

@@ -13,6 +13,7 @@ import com.example.isepchat.models.Friend
 import com.google.android.material.imageview.ShapeableImageView
 import java.text.SimpleDateFormat
 import java.util.*
+import android.graphics.Typeface
 
 class FriendsRecyclerAdapter : RecyclerView.Adapter<FriendsRecyclerAdapter.ViewHolder>() {
 
@@ -37,17 +38,37 @@ class FriendsRecyclerAdapter : RecyclerView.Adapter<FriendsRecyclerAdapter.ViewH
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val ivFriend : ShapeableImageView = itemView.findViewById(R.id.ivFriend)
-        val tvName : TextView = itemView.findViewById(R.id.tvName)
-        val tvLastMsg : TextView = itemView.findViewById(R.id.tvLastMsg)
-        val tvHour : TextView = itemView.findViewById(R.id.tvHour)
+        val ivFriend : ShapeableImageView = itemView.findViewById(R.id.ivUserImg)
+        val tvName : TextView = itemView.findViewById(R.id.ivName)
+        val tvLastMsg : TextView = itemView.findViewById(R.id.ivTweet)
+        val tvHour : TextView = itemView.findViewById(R.id.ivHour)
+        val seenView : View = itemView.findViewById(R.id.pointnoir)
+
 
         fun bind(friend: Friend) {
+            if(friend.me){
+                tvLastMsg.text ="you: "+ friend.lastMsg
+
+            }else{
+                tvLastMsg.text = friend.lastMsg
+
+            }
+
             tvName.text = friend.name
-            tvLastMsg.text = friend.lastMsg
+
             val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
             tvHour.text = sdf.format(Date(friend.timestamp))
 
+            if(!friend.seen){
+                tvLastMsg.typeface= Typeface.DEFAULT_BOLD
+                tvLastMsg.textSize = 20f
+                seenView.visibility = View.VISIBLE
+
+            }else{
+                tvLastMsg.typeface= Typeface.DEFAULT
+                tvLastMsg.textSize = 18f
+                seenView.visibility=View.GONE;
+            }
             if(friend.image.isNotEmpty()) {
                 Glide.with(itemView.context).load(friend.image).placeholder(R.drawable.avatar1).into(ivFriend)
             }

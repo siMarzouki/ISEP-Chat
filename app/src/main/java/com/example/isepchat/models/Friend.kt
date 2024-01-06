@@ -3,9 +3,11 @@ package com.example.isepchat.models
 data class Friend(
     var uuid: String,
     val name: String,
-    val lastMsg: String,
+    var lastMsg: String,
     val image: String,
     val timestamp: Long,
-) {
-    constructor(): this("", "", "", "", 0)
+    var seen:Boolean=false,
+    var me:Boolean=false
+    ) {
+    constructor(): this("", "", "", "", 0,)
 }

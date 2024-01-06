@@ -9,4 +9,7 @@
     <color name="red">#e53a35</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_500">#80FFFFFF</color>
+    <color name="likedButtonColor">#E53935</color> <!-- Replace #FF0000 with your preferred color code -->
+    <color name="notLikedButtonColor">#919191</color> <!-- Replace #00FF00 with your preferred color code -->
+
 </resources>

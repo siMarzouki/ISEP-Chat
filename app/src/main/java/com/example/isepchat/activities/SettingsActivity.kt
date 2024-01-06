@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.isepchat.R
 import com.example.isepchat.models.User
+import com.example.isepchat.services.communityService
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textfield.TextInputLayout
@@ -77,6 +78,7 @@ class SettingsActivity : AppCompatActivity() {
 
         layoutTextInputEmail.editText?.setText(user.email)
         layoutTextInputName.editText?.setText(user.fullname)
+
 
         user.image?.let {
             Glide.with(this).load(it).placeholder(R.drawable.avatar1).into(ivUser)

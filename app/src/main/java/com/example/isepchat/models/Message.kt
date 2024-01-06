@@ -5,8 +5,12 @@ data class Message(
     val receiver: String,
     val text: String,
     val timestamp: Long,
-    var isReceived: Boolean = true
-) {
+    var id:String="",
+    var isReceived: Boolean = true,
+    var vued:Boolean=false,
+    var liked:Boolean=false
+
+    ) {
 
     constructor(): this("", "","",0)
 

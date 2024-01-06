@@ -69,7 +69,7 @@ class AuthentificationActivity : AppCompatActivity() {
     fun signIn(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if(task.isSuccessful) {
-                Intent(this, HomeActivity::class.java).also {
+                Intent(this, Main::class.java).also {
                     startActivity(it)
                 }
                 finish()

@@ -77,7 +77,7 @@ class RegisterActivity : AppCompatActivity() {
                             // creation de l'utilisateur dans le module Firestore
                             val db = Firebase.firestore
                             db.collection("users").document(currentUser!!.uid).set(user).addOnSuccessListener {
-                                Intent(this, HomeActivity::class.java).also {
+                                Intent(this, Main::class.java).also {
                                     startActivity(it)
                                 }
                             }.addOnFailureListener {
