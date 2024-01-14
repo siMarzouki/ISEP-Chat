@@ -47,10 +47,25 @@ class FriendsRecyclerAdapter : RecyclerView.Adapter<FriendsRecyclerAdapter.ViewH
 
         fun bind(friend: Friend) {
             if(friend.me){
-                tvLastMsg.text ="you: "+ friend.lastMsg
+                if( friend.lastMsg.startsWith("###img:")){
+                    tvLastMsg.text="Image Sent"
+                }else if ( friend.lastMsg.startsWith("###location:")) {
+                    tvLastMsg.text="Location Sent"
+
+                }  else{
+                    tvLastMsg.text ="you: "+ friend.lastMsg
+                }
 
             }else{
-                tvLastMsg.text = friend.lastMsg
+
+                if( friend.lastMsg.startsWith("###img:")){
+                    tvLastMsg.text="Image Received"
+                }else if ( friend.lastMsg.startsWith("###location:")) {
+                    tvLastMsg.text="Location Received"
+
+                } else{
+                    tvLastMsg.text = friend.lastMsg
+                }
 
             }
 

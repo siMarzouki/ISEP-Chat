@@ -1,6 +1,8 @@
 package com.example.isepchat.activities.ui.dashboard
 
 import android.app.AlertDialog
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -110,6 +113,33 @@ class DashboardFragment : Fragment() {
         community.getTweets {tweets->
             val mutableTweets = tweets.toMutableList()
             tweetsRecyclerAdapter.items = mutableTweets
+
+            tweets.forEach {
+                val mutableTweets = tweets.toMutableList()
+                val currentTimeMillis = System.currentTimeMillis()
+                val messageTimeMillis = it.timestamp
+
+                val timeDifferenceMillis = currentTimeMillis - messageTimeMillis
+                val isTimeDifferenceLessThanOneMinute =
+                    timeDifferenceMillis <  5* 1000
+
+                if (isTimeDifferenceLessThanOneMinute && getContext()!=null && it.uid!=auth.uid) {
+                    val notificationId = timeDifferenceMillis.toInt()
+                    val notificationBuilder = NotificationCompat.Builder(requireContext(), "isepchat")
+                        .setSmallIcon(R.drawable.bavarder)
+                        .setContentTitle("New Post")
+                        .setContentText(it.text)
+                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+
+
+
+                    val notificationManager =
+                        requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                    notificationManager.notify(notificationId, notificationBuilder.build())
+
+                }
+            }
 
         }
     }
