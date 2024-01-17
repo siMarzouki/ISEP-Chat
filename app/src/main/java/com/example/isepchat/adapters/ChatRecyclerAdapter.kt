@@ -70,7 +70,7 @@ class ChatRecyclerAdapter: RecyclerView.Adapter<ChatRecyclerAdapter.ViewHolder>(
                 tvMessage.text="\uD83D\uDCCD Shared Location"
                 tvImage.visibility=View.GONE
                 val locationInfo = message.text.substring(12)
-                val latLng = locationInfo.split("-")
+                val latLng = locationInfo.split("^")
 
                 tvMessage.setOnClickListener {
                     openGoogleMaps(itemView.context, latLng[0], latLng[1])

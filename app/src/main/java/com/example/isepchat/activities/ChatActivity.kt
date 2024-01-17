@@ -69,11 +69,8 @@ class ChatActivity : AppCompatActivity() {
     var latitude=0.0
     var longitude=0.0
 
-
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val locationPermissionCode = 1
-
-
 
     private fun checkLocationPermission(): Boolean {
         return ContextCompat.checkSelfPermission(
@@ -168,9 +165,6 @@ class ChatActivity : AppCompatActivity() {
                     user?.let {
                         user.uuid = userUuid
                         setUserData(user)
-
-
-
                     }
                     user2=user!!
 
@@ -261,9 +255,6 @@ class ChatActivity : AppCompatActivity() {
             }.addOnFailureListener {
                 Log.e("ChatActivity", "error getting user", it)
             }
-
-
-
     }
 
     private fun setUserData(user: User) {
@@ -399,7 +390,7 @@ class ChatActivity : AppCompatActivity() {
         fun sendLocation(){
 getLastLocation();
 
-                val message = "###location:"+latitude+"-"+longitude
+                val message = "###location:"+latitude+"^"+longitude
                 if (message.isNotEmpty()) {
                     val message = Message(
                         sender = currentUser!!.uid,
